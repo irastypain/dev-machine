@@ -4,7 +4,11 @@ echo '[OS] Installing packages for Ubuntu...'
 
 # 1. Self-update
 echo '[OS] #1 Self-update'
-apt update && apt upgrade -y
+echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+apt update && apt upgrade \
+  -o Dpkg::Options::="--force-confdef" \
+  -o Dpkg::Options::="--force-confold" \
+  -yq
 
 # 2. Install necessary tools
 echo '[OS] #2 Necessary tools'
