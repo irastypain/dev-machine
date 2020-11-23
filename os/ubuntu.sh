@@ -66,10 +66,11 @@ useradd \
   $DEV_MACHINE_USER
 
 # 4. Other instruments
-echo '[OS] #4 Installing... git vim'
+echo '[OS] #4 Installing... ag git vim'
 su - $DEV_MACHINE_USER && \
   apt install \
     git \
+    silversearcher-ag \
     vim \
     -y
 
