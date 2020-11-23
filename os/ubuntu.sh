@@ -55,13 +55,6 @@ echo '[OS] #2 Post-installation steps for Docker'
 groupadd docker
 systemctl enable docker
 
-# Other instruments
-echo '[OS] #2 Installing... git vim'
-apt install \
-  git \
-  vim \
-  -y
-
 # 3. Create user
 echo '[OS] #3 Creating... user'
 useradd \
@@ -71,5 +64,13 @@ useradd \
   --shell /bin/bash \
   --user-group \
   $DEV_MACHINE_USER
+
+# 4. Other instruments
+echo '[OS] #4 Installing... git vim'
+su - $DEV_MACHINE_USER && \
+  apt install \
+    git \
+    vim \
+    -y
 
 echo '[OS] Done'
