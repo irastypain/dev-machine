@@ -1,7 +1,5 @@
 echo '[Configs] #1 Prepare temporary directory...'
-
 cd ~
-
 mkdir -p configs
 cd configs
 
