@@ -1,0 +1,3 @@
+
+[includeIf "gitdir/i:${GIT_DIR}/"]
+  path = ${GIT_DIR}/.gitconfig

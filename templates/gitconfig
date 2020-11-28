@@ -1,0 +1,6 @@
+[user]
+  email = ${DEV_MACHINE_EMAIL}
+  name = ${DEV_MACHINE_FULL_NAME}
+  signinkey = ${DEV_MACHINE_SIGNINKEY}
+[commit]
+  gpgsign = true
