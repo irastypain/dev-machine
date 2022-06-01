@@ -8,18 +8,26 @@
 
 Add to your `.ssh/config`:
 ```
-Host < $DEV_MACHINE_HOST >
-    Hostname < Real hostname or IP >
-    User < existed user on remote host >
+Host <$DEV_MACHINE_HOST>
+    Hostname <Real hostname or IP>
+    User <Existed user on remote host>
     AddKeysToAgent yes
     ForwardAgent yes
-    IdentityFile < $DEV_MACHINE_IDENTITY_PATH >
+    IdentityFile <Path to identity file>
 ```
 
 ## Install
 
+Base config:
+
 ```bash
 $ cp .env.example .env
+```
+
+Config for each workspace:
+
+```bash
+$ cp .env.workspace.example .env.<workspace name>
 ```
 
 ... set variables and run ...
