@@ -1,6 +1,7 @@
 # [DEV] Machine
 
 ## Requirements
+- git
 - sshpass
 
 ## Before installation
