@@ -1,0 +1,13 @@
+# Export ENV variables
+#
+dotenv () {
+  echo "Loading... ENV variables from $1"
+  if [ ! -f $1 ]; then
+    echo "Error: File $1 must exist!" >&2
+    exit 1
+  fi
+
+  set -a
+  source $1
+  set +a
+}
