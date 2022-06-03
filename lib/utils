@@ -7,7 +7,9 @@ dotenv () {
     exit 1
   fi
 
+  CURRENT_ENV_FILE=$1
+
   set -a
-  source $1
+  source $CURRENT_ENV_FILE
   set +a
 }
