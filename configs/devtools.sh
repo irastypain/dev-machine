@@ -1,7 +1,7 @@
 echo '[Configs] #1 Prepare temporary directory...'
 cd ~
-mkdir -p configs
-cd configs
+mkdir -p temporary_configs
+cd temporary_configs
 
 echo '[Configs] #2 Pull dotfiles...'
 git clone https://github.com/irastypain/dotfiles.git
@@ -18,6 +18,6 @@ yes | make git
 
 echo '[Configs] #3 Remove temporary directory...'
 cd ~
-rm -rf configs
+rm -rf temporary_configs
 
 echo '[Configs] Done'
