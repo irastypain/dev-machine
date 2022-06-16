@@ -1,11 +1,14 @@
 #!/bin/bash
 
-source './lib/utils'
+INITIAL_DIR=$(pwd)
+cd "$(dirname $0)"
+
+source '../lib/utils'
 
 # Export ENV variables
-dotenv '.env'
+dotenv '../.env'
 
-scripts_path="./scripts/os/$DEV_MACHINE_OS"
+scripts_path="./os/$DEV_MACHINE_OS"
 
 # Prepare OS
 ssh -t $DEV_MACHINE_HOST "$(echo $(< $CURRENT_ENV_FILE)) sh" < "$scripts_path/prepare_system.sh"
@@ -13,13 +16,13 @@ ssh -t $DEV_MACHINE_HOST "$(echo $(< $CURRENT_ENV_FILE)) sh" < "$scripts_path/pr
 # Create workspaces
 for workspace in "${DEV_MACHINE_WORKSPACES[@]}"; do
   echo "[Workspace: $workspace] Prepare..."
-  dotenv ".env.$workspace"
+  dotenv "../.env.$workspace"
 
   # Create user
   ssh -t $DEV_MACHINE_HOST "$(echo $(< $CURRENT_ENV_FILE)) sh" < "$scripts_path/create_user.sh"
 
   # Prepare SSH
-  sh ./scripts/copy_identity.sh
+  sh ./copy_identity.sh
 
   # Configure devtools
   ssh -t $DEV_MACHINE_USER@$DEV_MACHINE_HOST "$(echo $(< $CURRENT_ENV_FILE)) sh" < "$scripts_path/configure_devtools.sh"
@@ -29,3 +32,5 @@ for workspace in "${DEV_MACHINE_WORKSPACES[@]}"; do
 
   echo "[Workspace: $workspace] Done"
 done
+
+cd $INITIAL_DIR
