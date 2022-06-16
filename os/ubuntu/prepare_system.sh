@@ -46,4 +46,11 @@ echo '[OS][Prepare system] #2 Post-installation steps for Docker'
 groupadd docker
 systemctl enable docker
 
+echo '[OS][Prepare system] #3 Installing... ag git vim'
+apt install \
+  git \
+  silversearcher-ag \
+  vim \
+  -y
+
 echo '[OS][Prepare system] Done'
