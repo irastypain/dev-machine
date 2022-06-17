@@ -46,11 +46,15 @@ echo '[OS][Prepare system] #2 Post-installation steps for Docker'
 groupadd docker
 systemctl enable docker
 
-echo '[OS][Prepare system] #3 Installing... ag git vim'
+echo '[OS][Prepare system] #3 Installing... ag gh git vim'
 apt install \
   git \
   silversearcher-ag \
   vim \
   -y
+
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+apt update && apt install gh -y
 
 echo '[OS][Prepare system] Done'

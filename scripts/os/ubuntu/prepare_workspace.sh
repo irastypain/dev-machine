@@ -31,6 +31,25 @@ envsubst >> $global_gitconfig <<-EOL
 EOL
 fi
 
+# Setup gh
+envsubst > ./temporary/hosts.yml <<-EOL
+github.com:
+    oauth_token: ${DEV_MACHINE_GH_OAUTH_TOKEN}
+    user: ${DEV_MACHINE_GH_USER}
+    git_protocol: https
+EOL
+
+envsubst > ./temporary/config.yml <<-EOL
+git_protocol: https
+editor: vim
+prompt: enabled
+pager: !!null less
+EOL
+
+mkdir -p "$HOME/.config/gh"
+yes | cp -i ./temporary/hosts.yml "$HOME/.config/gh/hosts.yml"
+yes | cp -i ./temporary/config.yml "$HOME/.config/gh/config.yml"
+
 # Cleanup
 rm -rf ./temporary
 
