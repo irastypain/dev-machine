@@ -5,8 +5,10 @@ cd "$(dirname $0)"
 
 source '../lib/utils'
 
+workspace=$1
+
 # Export ENV variables
-dotenv '../.env'
+dotenv "../.env.$workspace"
 
 scripts_path="./os/$DEV_MACHINE_OS"
 

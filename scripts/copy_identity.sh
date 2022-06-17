@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo '[SSH] Copy identity...'
 
 if hash sshpass 2>/dev/null; then

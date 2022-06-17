@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo '[Configs] #1 Prepare temporary directory...'
 cd ~
 mkdir -p temporary_configs
