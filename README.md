@@ -18,12 +18,6 @@ Host <$DEV_MACHINE_HOST>
 
 ## Install
 
-Base config:
-
-```bash
-$ cp .env.example .env
-```
-
 Config for each workspace:
 
 ```bash
@@ -32,6 +26,14 @@ $ cp .env.workspace.example .env.<workspace name>
 
 ... set variables and run ...
 
+Full installation:
+
 ```bash
-$ make install
+$ make install_os workspace name=<workspace name>
+```
+
+Only set up workspace (OS must already be installed):
+
+```bash
+$ make workspace name=<workspace name>
 ```
